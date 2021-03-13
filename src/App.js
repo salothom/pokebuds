@@ -1,23 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Powers from './pokePowers';
+import Pokemon from './pokemon';
+import React, { useState } from 'react'
 function App() {
+
+  const [displayPowers, setPowers] = useState(true)
+
+  function swapShow() {
+    setPowers(!displayPowers)
+    console.log(displayPowers)
+
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>POKE POWERS</h1>
+      {displayPowers && <Powers />}
+      {!displayPowers && <Pokemon />}
+      <div className="footer">
+        <button className="button boxShadow" onClick={swapShow}>Swap Views
+
+        </button>
+
+      </div>
+
     </div>
   );
 }
